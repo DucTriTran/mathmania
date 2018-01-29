@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    
+    <title>Title</title>
+</head>
+<body ng-app="mathmaniaApp" ng-controller="mainCtrl as vm">
+<div class="row header">
+    <div class="col-md-4 offset-md-4 title">MATHMANIA</div>
+    <div class="col-md-4 real-time-result">Progress: {{vm.correctAnswers}}/{{vm.totalAnswers}}</div>
+</div>
+<div ng-if="vm.isPlaying">
+<div class="row">
+    <div class="col-md-6 offset-md-3 operation">
+        {{vm.num1}} {{vm.operator}} {{vm.num2}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 offset-md-3 operation equal-sign">=</div>
+</div>
+<div class="row">
+    <input type="text" class="col-md-6 offset-md-3 form-control predicted-result" ng-model="vm.predictedResult" ng-keypress="vm.checkToSubmit($event)">
+</div>
+</div>
+<div class="row">
+    <div ng-if="vm.questionResult" class="col-md-6 offset-md-3 alert question-result" ng-class="vm.isCorrect ? 'alert-success' : 'alert-danger'">{{vm.questionResult}}</div>
+</div>  
+<div ng-if="!vm.isPlaying && vm.justPlayed" class="row">
+    <div class="col-md-6 offset-md-3 final-result">{{vm.correctAnswers}}/{{vm.totalAnswers}}</div>
+</div>
+<div ng-if="!vm.isPlaying" class="row">
+    <button ng-if="!vm.justPlayed" type="button" class="col-md-6 offset-md-3 btn btn-success btn-play" ng-click="vm.play()">PLAY</button>
+    <button ng-if="vm.justPlayed" type="button" class="col-md-6 offset-md-3 btn btn-success" ng-click="vm.play()">PLAY AGAIN</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+.header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    background-color: #0E3147;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+.operation {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.real-time-result{
+    font-size: 15px;
+}
+.equal-sign{
+    margin-top: -12px;
+}
+.predicted-result {
+    text-align: center;
+    font-size: 19px;
+}
+.question-result {
+    text-align: center;
+    padding : 0;
+    margin-bottom: 0;
+}
+.final-result {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+.btn-play {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
